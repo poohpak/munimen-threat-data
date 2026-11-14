@@ -32,7 +32,7 @@
     },
     {
       "name": "scripts/publish-threat-feed.mjs",
-      "sha256": "8ff7e4067b043721459c7f69253d7fb776539091022690f6c7c88859dd6480cf"
+      "sha256": "e7fefdfd84e49c3f7470b8fea279cd760de9bb50fb6ad394063eda73827bb8b5"
     },
     {
       "name": "scripts/write-threat-status.mjs",
@@ -47,8 +47,16 @@
       "sha256": "75acbc5080b92cc61671745ea0428975b33cf3dfbfad8638e660213bd0254623"
     },
     {
+      "name": "scripts/lib/threat-publisher.mjs",
+      "sha256": "a971773272f5ae89c26fb9663a1462c97efaefb8830b228a7ebc1eb6e9703d61"
+    },
+    {
+      "name": "tests/threat-publisher.test.js",
+      "sha256": "ef1f71f42f401de71b0820ab0aa33f3094f1ffae60f6488b7d3934fcc82c03fc"
+    },
+    {
       "name": "README.md",
-      "sha256": "003b4b637c4272bb24dbfbca4e7cf6f19e9b52d2a7061e88425f4c17eff8acb2"
+      "sha256": "8d63b0c992e80bf05f60d681252b7bed49df7d7293d9e79104ecfdac38fc5d40"
     },
     {
       "name": "RELEASE_NOTES.md",

@@ -31,7 +31,7 @@ npm run publish:feed
 
 Signing requires `THREAT_SIGNING_KEY` in the `threat-feed-production` GitHub environment. The private key is never committed or included in artifacts. It is exposed only to the signing step. Only main-branch schedule/manual runs publish data; pull requests do not receive signing credentials. No separate private-repository token is used.
 
-Manifest verification checks the public key, ECDSA P-256/SHA-256 signature, SHA-256 checksums (whole payload and host buckets), monotonically increasing version, schema and timestamps. A host/scope change greater than 25% stops publication. Payloads are uploaded before the current manifest pointer changes.
+Manifest verification checks the public key, ECDSA P-256/SHA-256 signature, SHA-256 checksums (whole payload and host buckets), monotonically increasing version, schema and timestamps. A host/scope change greater than 25% stops publication. Immutable payloads and audit files are archived in daily `threat-archive-YYYY-MM-DD` releases before the current manifest pointer changes. The stable `threat-feed` release retains only the current and previous payload, keeping hourly updates below per-release asset limits.
 
 An informational status JSON is published even when stale source data blocks publication. It is never an input to the extension's safety decisions. Rollback means re-signing reviewed contents at a higher version while preserving the source timestamp.
 
