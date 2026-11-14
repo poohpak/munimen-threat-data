@@ -1,0 +1,61 @@
+name: Signed threat feed
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: threat-feed
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'poohpak/munimen-threat-data' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: threat-feed-production
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - name: Fetch and verify previous signed release
+        run: node scripts/previous-threat-feed.mjs
+      - name: Collect pinned upstream source
+        id: collect
+        run: npm run collect -- --previous=.context/threat-feed/previous.json
+      - name: Sign validated fresh source
+        id: sign
+        env:
+          THREAT_SIGNING_KEY: ${{ secrets.THREAT_SIGNING_KEY }}
+        run: npm run sign
+      - name: Publish artifact before switching the manifest
+        id: publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: npm run publish:feed
+      - name: Record publication status
+        if: always()
+        env:
+          FEED_PUBLICATION_OUTCOME: ${{ steps.publish.outcome }}
+        run: node scripts/write-threat-status.mjs
+      - name: Publish status without creating an unsigned feed
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/publish-threat-status.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: threat-source-audit-${{ github.run_id }}
+          path: |
+            .context/threat-feed/source.json
+            .context/threat-feed/status.json
+          include-hidden-files: true

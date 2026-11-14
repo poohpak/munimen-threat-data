@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "repository": "poohpak/munimen-threat-data",
+  "files": [
+    {
+      "name": "src/domains.js",
+      "sha256": "7eedf17e9a5913929fb6067e66638fadd9be1d163692174e225f55cfe60de647"
+    },
+    {
+      "name": "src/threat-bundle.js",
+      "sha256": "7b67cdaa931950798351e896e0358542d320de91598888442f226ff9ee9181df"
+    },
+    {
+      "name": "src/threat-config.js",
+      "sha256": "e0a92292d2d00b660c4ab7b5350e66a7115431c96b273f76bc5a7c822ac066ad"
+    },
+    {
+      "name": "scripts/collect-threat-feed.mjs",
+      "sha256": "d4de4896713a4e4994f2939ae1984b39782ea423600b522c76f8ba6411d74058"
+    },
+    {
+      "name": "scripts/sign-threat-feed.mjs",
+      "sha256": "e1ccdf8c4f661efc9bae95fd4b811829dfb84808da5ef050928553c10b01c0aa"
+    },
+    {
+      "name": "scripts/previous-threat-feed.mjs",
+      "sha256": "9ee2669393257ed5bc1f6997f44b8d7991ced2b9abef27af2efc5b9566d9a7ee"
+    },
+    {
+      "name": "scripts/publish-threat-feed.mjs",
+      "sha256": "8ff7e4067b043721459c7f69253d7fb776539091022690f6c7c88859dd6480cf"
+    },
+    {
+      "name": "scripts/write-threat-status.mjs",
+      "sha256": "37bf674b2623b9c63bdc68f3914a35508c96a3d174f695f04c43c5145b140d35"
+    },
+    {
+      "name": "scripts/publish-threat-status.mjs",
+      "sha256": "13bebae2a5d2bf5e494517a4dcccd3411e70dfadf9f5327a5d27cdc0c831dcd9"
+    },
+    {
+      "name": "scripts/lib/threat-download.mjs",
+      "sha256": "75acbc5080b92cc61671745ea0428975b33cf3dfbfad8638e660213bd0254623"
+    },
+    {
+      "name": "README.md",
+      "sha256": "e1e12dca8d19453ae20bf50f0c0555601361bd583f774e19b738386ffa4ef28d"
+    },
+    {
+      "name": "RELEASE_NOTES.md",
+      "sha256": "74a12d1cf5e6667121ffa1931a85fddd7265e4c3eab603d776bc39fb5f503d1f"
+    },
+    {
+      "name": "package.json",
+      "sha256": "89ed66a297ae947f42f96677f12df74d223fc08b27518617a6e3aaf391e244b8"
+    },
+    {
+      "name": "package-lock.json",
+      "sha256": "72526b4d271cafbac243f72b0f1db5f4066cdd535697242cd34818a19aff4093"
+    },
+    {
+      "name": ".github/workflows/feed.yml",
+      "sha256": "2772a8eb83d0cb3a20297307100db45a61cb3c9dedfbc1f60155a399ca11d0ef"
+    },
+    {
+      "name": "tests/public-feed.test.js",
+      "sha256": "a5ee602e6e20f281652ca438d22da82a92cb4e3a55190e9d77031c28959528ba"
+    },
+    {
+      "name": "UPSTREAM_DATA_NOTICE.txt",
+      "sha256": "066ed489fcac21ec01d747754c52249cbe7d02558a63394fdf4dde89a84074ef"
+    },
+    {
+      "name": ".gitignore",
+      "sha256": "dec124bdfb7b36746c71d16a3cb543ad3d6c27cd020bfa23cec6d1473b5e5a3d"
+    },
+    {
+      "name": "public-keys.json",
+      "sha256": "840e41c84921e0d9e384391a682f9a600024e81388c153b440f0bc0dba10c157"
+    }
+  ]
+}

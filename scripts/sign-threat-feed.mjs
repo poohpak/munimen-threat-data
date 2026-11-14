@@ -1,0 +1,17 @@
+import{readFile,writeFile}from'node:fs/promises';
+import{digest,threatPartitions,signedManifestBytes,verifyThreatBundle,FRESH_MS}from'../src/threat-bundle.js';
+import{THREAT_CONFIG}from'../src/threat-config.js';
+const dir=process.argv.find(a=>a.startsWith('--directory='))?.slice(12)||'.context/threat-feed';
+const keyPath=process.argv.find(a=>a.startsWith('--private-key='))?.slice(14);
+const jwk=JSON.parse(keyPath?await readFile(keyPath,'utf8'):process.env.THREAT_SIGNING_KEY||'null');
+if(!jwk)throw Error('THREAT_SIGNING_KEY is required');
+const keyId=Object.keys(THREAT_CONFIG.keys).find(k=>THREAT_CONFIG.keys[k].x===jwk.x&&THREAT_CONFIG.keys[k].y===jwk.y);
+if(!keyId)throw Error('Signing key does not match the bundled trust anchor');
+const source=JSON.parse(await readFile(`${dir}/source.json`)),bytes=await readFile(`${dir}/payload.json`),payload=JSON.parse(bytes);
+if(Date.now()-Date.parse(source.sourcePublishedAt)>FRESH_MS)throw Error('Upstream is older than 72 hours; refuse to publish as fresh');
+const version=Date.now(),manifest={schemaVersion:1,version,keyId,generatedAt:new Date(version).toISOString(),source:source.source,sourceRevision:source.sourceRevision,sourcePublishedAt:source.sourcePublishedAt,artifact:`threats-${version}.json`,bytes:bytes.length,entries:payload.entries.length,sha256:await digest(bytes),shardHashes:await Promise.all(threatPartitions(payload).map(digest))};
+const key=await crypto.subtle.importKey('jwk',jwk,{name:'ECDSA',namedCurve:'P-256'},false,['sign']);
+manifest.signature=Buffer.from(await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},key,signedManifestBytes(manifest))).toString('base64');
+const previous=await readFile(`${dir}/previous-manifest.json`,'utf8').then(JSON.parse,()=>null);
+await verifyThreatBundle(manifest,bytes,THREAT_CONFIG.keys,{previousVersion:previous?.version||0});
+await writeFile(`${dir}/${manifest.artifact}`,bytes);await writeFile(`${dir}/manifest.json`,JSON.stringify(manifest,null,2));console.log({version,keyId,entries:manifest.entries,artifact:manifest.artifact});
