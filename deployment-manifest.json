@@ -8,15 +8,19 @@
     },
     {
       "name": "src/threat-bundle.js",
-      "sha256": "7b67cdaa931950798351e896e0358542d320de91598888442f226ff9ee9181df"
+      "sha256": "faf5fb290c5fa48978c28287242172bb60bdb7e716be8d085c2af4e16f35d372"
     },
     {
       "name": "src/threat-config.js",
       "sha256": "e0a92292d2d00b660c4ab7b5350e66a7115431c96b273f76bc5a7c822ac066ad"
     },
     {
+      "name": "src/threat-sources.js",
+      "sha256": "a50aad26d31873f6a29efce1ca6809d49b41ea1962ebba66b581c2cac3651b9e"
+    },
+    {
       "name": "scripts/collect-threat-feed.mjs",
-      "sha256": "d4de4896713a4e4994f2939ae1984b39782ea423600b522c76f8ba6411d74058"
+      "sha256": "867006775afa332cb51e32a68a80f43ba2f4a4969fd8e57d01dc76a5be161171"
     },
     {
       "name": "scripts/sign-threat-feed.mjs",
@@ -44,7 +48,7 @@
     },
     {
       "name": "README.md",
-      "sha256": "e1e12dca8d19453ae20bf50f0c0555601361bd583f774e19b738386ffa4ef28d"
+      "sha256": "003b4b637c4272bb24dbfbca4e7cf6f19e9b52d2a7061e88425f4c17eff8acb2"
     },
     {
       "name": "RELEASE_NOTES.md",
@@ -68,7 +72,7 @@
     },
     {
       "name": "UPSTREAM_DATA_NOTICE.txt",
-      "sha256": "066ed489fcac21ec01d747754c52249cbe7d02558a63394fdf4dde89a84074ef"
+      "sha256": "130a8d65cfbc945fec927a92f7b5a48f07469ec04b15a44092cf9f30ca38267a"
     },
     {
       "name": ".gitignore",

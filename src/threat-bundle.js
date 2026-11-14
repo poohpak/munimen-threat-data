@@ -1,3 +1,4 @@
+import {threatSource} from './threat-sources.js';
 import {canonicalDomain} from './domains.js';
 export const MAX_FEED_BYTES=96*1024*1024, MAX_ENTRIES=1000000, FRESH_MS=72*3600000;
 const utf8=new TextEncoder();
@@ -16,7 +17,7 @@ export async function verifyThreatManifest(manifest,keys,{previousVersion=0,now=
     !validTime(manifest.generatedAt) || !validTime(manifest.sourcePublishedAt) || Date.parse(manifest.generatedAt)>now+300000 ||
     Date.parse(manifest.sourcePublishedAt)>Date.parse(manifest.generatedAt) ||
     !/^[a-f0-9]{64}$/.test(manifest.sha256) || !Number.isSafeInteger(manifest.bytes) || manifest.bytes<1 || manifest.bytes>MAX_FEED_BYTES || !Number.isSafeInteger(manifest.entries) || manifest.entries<1 || manifest.entries>MAX_ENTRIES || !Array.isArray(manifest.shardHashes) || manifest.shardHashes.length!==256 || manifest.shardHashes.some(h=>!(/^[a-f0-9]{64}$/).test(h)) ||
-    !/^[a-f0-9]{40}$/.test(manifest.sourceRevision) || manifest.source!=='https://github.com/Phishing-Database/Phishing.Database' ||
+    !/^[a-f0-9]{40}$/.test(manifest.sourceRevision) || !threatSource(manifest.source) ||
     manifest.artifact!==`threats-${manifest.version}.json` || typeof manifest.signature!=='string') throw Error('위협 자료 메타데이터가 올바르지 않습니다.');
   const key=keys[manifest.keyId];
   if(!key)throw Error('등록되지 않은 위협 자료 서명 키입니다.');

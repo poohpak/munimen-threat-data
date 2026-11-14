@@ -12,9 +12,9 @@ The manifest URL returns 404 until the first fresh, validated feed can be publis
 
 Downloads contain no visitor addresses, search queries, mail content, user identifiers, or browsing history. GitHub receives normal HTTPS connection information. All host checks run on the user's device.
 
-The first source is [Phishing.Database](https://github.com/Phishing-Database/Phishing.Database), which declares the MIT license. Its `ACTIVE` label is a publisher classification, not independent verification. Exact domain reports and hosts derived from URL reports remain distinct: URL-host reports do not grant permission to block every URL or parent domain.
+The first source is [Phishing.Database](https://github.com/Phishing-Database/Phishing.Database), which declares the MIT license. When it is unavailable or stale, the reviewed [PhishDestroy primary active domain list](https://github.com/phishdestroy/destroylist) is an MIT-licensed fallback; community aggregated lists are excluded. The manifest identifies the provider actually used. Its `ACTIVE` label is a publisher classification, not independent verification. Exact domain reports and hosts derived from URL reports remain distinct: URL-host reports do not grant permission to block every URL or parent domain.
 
-The upstream license, source revision, file publication times, withdrawals, immutable payload and signed manifest are preserved with each published version. No upstream phishing target is visited by these tools. Source freshness is derived from data-file history, not collection time or an unrelated README commit. Both source files must satisfy the 72-hour publication limit.
+The upstream license, source revision, file publication times, withdrawals, immutable payload and signed manifest are preserved with each published version. No upstream phishing target is visited by these tools. Source freshness is derived from data-file history, not collection time or an unrelated README commit. All data files of the selected provider must satisfy the 72-hour publication limit. Switching providers does not waive the 25% change guard.
 
 ## Reproducing the feed
 
