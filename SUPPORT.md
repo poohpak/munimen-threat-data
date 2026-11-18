@@ -19,7 +19,7 @@ Support email is used to respond to your request. To request deletion of a suppo
 
 오류, 잘못된 도메인 경고, 놓친 위장 주소, 기능 건의는 **[consilience.labs@gmail.com](mailto:consilience.labs@gmail.com)**으로 보내 주세요.
 
-Munimen 팝업의 **사이트 자료 관리 → 오류 제보·건의**에서도 문의 초안을 만들 수 있습니다. 확장이 자동 발송하지 않으며, 사용자가 선택한 메일 앱에서 검토하고 직접 발송합니다.
+Munimen 팝업에서 **사이트 자료 관리 아래의 ‘오류 제보·건의’**를 눌러 문의 초안을 만들 수도 있습니다. 확장이 자동 발송하지 않으며, 사용자가 선택한 메일 앱에서 검토하고 직접 발송합니다.
 
 가능하면 다음 내용을 함께 알려 주세요.
 
