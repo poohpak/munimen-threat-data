@@ -14,7 +14,7 @@ export async function publishThreatSnapshot({target,manifest,previousVersion=0,d
  // An archive failure cannot publish an unauditable stable pointer.
  gh(['release','upload',archive,...repo,`${directory}/${manifest.artifact}`,...audit]);
  ensure('threat-feed','Signed host reputation data. See status.json for operational status.');
- gh(['release','upload','threat-feed',...repo,`${directory}/${manifest.artifact}`]);
+ gh(['release','upload','threat-feed',...repo,`${directory}/${manifest.artifact}`,`${directory}/${manifest.artifact}.gz`]);
  gh(['release','upload','threat-feed',...repo,`${directory}/manifest.json`,'--clobber']);
  // Keep a bounded stable endpoint. The archive retains the full history.
  // Cleanup failure is maintenance debt, never a failed activation report.
@@ -22,7 +22,7 @@ export async function publishThreatSnapshot({target,manifest,previousVersion=0,d
   const assets=JSON.parse(gh(['release','view','threat-feed',...repo,'--json','assets'])).assets;
   const keep=new Set([String(version),String(previousVersion)]);
   for(const asset of assets){
-   const match=/^threats-(\d+)\.json$/.exec(asset.name);
+   const match=/^threats-(\d+)\.json(?:\.gz)?$/.exec(asset.name);
    if(match&&!keep.has(match[1]))gh(['release','delete-asset','threat-feed',asset.name,...repo,'--yes']);
   }
   return {version,archive,maintenancePending:false};

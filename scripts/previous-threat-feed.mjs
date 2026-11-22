@@ -13,7 +13,7 @@ if(!bytes){
  await verifyThreatManifest(manifest,THREAT_CONFIG.keys,{allowSame:true});
  const payload=await downloadThreatFile(THREAT_CONFIG.artifactBase+manifest.artifact,MAX_FEED_BYTES);
  if(!payload)throw Error('Previous signed payload is unavailable');
- const verified=await verifyThreatBundle(manifest,payload,THREAT_CONFIG.keys,{allowSame:true});
- await writeFile('.context/threat-feed/previous.json',JSON.stringify(verified.payload));
+ await verifyThreatBundle(manifest,payload,THREAT_CONFIG.keys,{allowSame:true});
+ await writeFile('.context/threat-feed/previous.json',payload);
  await writeFile('.context/threat-feed/previous-manifest.json',JSON.stringify(manifest));
 }

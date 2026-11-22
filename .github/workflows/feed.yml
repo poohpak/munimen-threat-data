@@ -28,6 +28,10 @@ jobs:
       - run: npm test
       - name: Fetch and verify previous signed release
         run: node scripts/previous-threat-feed.mjs
+      - name: Publish compressed transport for the verified current snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/publish-threat-feed.mjs --previous-transport
       - name: Collect pinned upstream source
         id: collect
         run: npm run collect -- --previous=.context/threat-feed/previous.json

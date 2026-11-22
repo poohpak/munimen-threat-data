@@ -4,11 +4,11 @@
   "files": [
     {
       "name": "src/domains.js",
-      "sha256": "7eedf17e9a5913929fb6067e66638fadd9be1d163692174e225f55cfe60de647"
+      "sha256": "04e713545bfd6280549bd85e826ec2827d74e3fe456b7aa5283ab60d2b596710"
     },
     {
       "name": "src/threat-bundle.js",
-      "sha256": "faf5fb290c5fa48978c28287242172bb60bdb7e716be8d085c2af4e16f35d372"
+      "sha256": "d3a06c07213b055b7b1a03524c4a3feade38a357ca64ec433f67a0a4340bd1f5"
     },
     {
       "name": "src/threat-config.js",
@@ -28,11 +28,11 @@
     },
     {
       "name": "scripts/previous-threat-feed.mjs",
-      "sha256": "9ee2669393257ed5bc1f6997f44b8d7991ced2b9abef27af2efc5b9566d9a7ee"
+      "sha256": "4914a9293d8c45abdaa1f7907882bb7ec25b87c5668afc32d32677cb6930b297"
     },
     {
       "name": "scripts/publish-threat-feed.mjs",
-      "sha256": "e7fefdfd84e49c3f7470b8fea279cd760de9bb50fb6ad394063eda73827bb8b5"
+      "sha256": "3bcb98c109e6d9313941cde7ed7f6577552f69dc4fbd590bae5e5e99c89fe2ae"
     },
     {
       "name": "scripts/write-threat-status.mjs",
@@ -48,11 +48,11 @@
     },
     {
       "name": "scripts/lib/threat-publisher.mjs",
-      "sha256": "a971773272f5ae89c26fb9663a1462c97efaefb8830b228a7ebc1eb6e9703d61"
+      "sha256": "a0d231e8d988ca934562c6523f017a6e2bc479ff17bf6bdc7c3206adad248534"
     },
     {
       "name": "tests/threat-publisher.test.js",
-      "sha256": "ef1f71f42f401de71b0820ab0aa33f3094f1ffae60f6488b7d3934fcc82c03fc"
+      "sha256": "9895b5b3a3f87def42b4f368f65955a7da6cf8d79cb5cbcb414b36ad3e0daad7"
     },
     {
       "name": "README.md",
@@ -72,11 +72,15 @@
     },
     {
       "name": ".github/workflows/feed.yml",
-      "sha256": "2772a8eb83d0cb3a20297307100db45a61cb3c9dedfbc1f60155a399ca11d0ef"
+      "sha256": "6d31f128219ca3bcbbc799da0d97890d2a788b04ed2084d0f7927e8bf7305581"
     },
     {
       "name": "tests/public-feed.test.js",
       "sha256": "a5ee602e6e20f281652ca438d22da82a92cb4e3a55190e9d77031c28959528ba"
+    },
+    {
+      "name": "src/i18n.js",
+      "sha256": "552cdddaaa925b04964e8e78fe5ced7660e96203ab38e64ecc47343768eebef6"
     },
     {
       "name": "UPSTREAM_DATA_NOTICE.txt",
